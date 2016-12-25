@@ -72,6 +72,16 @@ int main()
 			system("pause");
 		}	
 		system("cls");
+		if(othello.win_condition(colour) == true){
+			if(colour == 1){
+				cout << "White wins!!" << endl;
+				break;
+			}
+			if(colour == 2){
+				cout << "Black wins!!" << endl;
+				break;
+			}
+		}
 		othello.print_board();
 		turn++;
 	}

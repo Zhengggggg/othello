@@ -17,6 +17,7 @@ public:
 	bool check_possible_move(int position_column, int position_row);
 	bool getValid_flip();
 	void undo(int position_column, int position_row);
+	bool win_condition(int colour);
 };
 
 #endif

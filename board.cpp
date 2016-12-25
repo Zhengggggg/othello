@@ -408,3 +408,33 @@ bool board::getValid_flip(){
 void board::undo(int position_column, int position_row){
 	ary[position_column][position_row] = 0;
 }
+
+bool board::win_condition(int colour){
+	for(int i = 0; i < column; i++){
+		for(int j = 0; j < row; j++){
+			if(ary[i][j] == colour){
+				if(i + 4 < column){
+					if(ary[i+1][j] == colour && ary[i+2][j] == colour && ary[i+3][j] == colour && ary[i+4][j] == colour){
+						return true;
+					}
+				}
+				if(i + 4 <column && j + 4 <row){
+					if(ary[i+1][j+1] == colour && ary[i+2][j+2] == colour && ary[i+3][j+3] == colour && ary[i+4][j+4] == colour){
+						return true;
+					}
+				}
+				if(j + 4 <row){
+					if(ary[i][j+1] == colour && ary[i][j+2] == colour && ary[i][j+3] == colour && ary[i][j+4] == colour){
+						return true;
+					}
+				}
+				if(i - 4 >=0 && j +4  <row){
+					if(ary[i-1][j+1] == colour && ary[i-2][j+2] == colour && ary[i-3][j+3] == colour && ary[i-4][j+4] == colour){
+						return true;
+					}
+				}
+			}
+		}
+	}
+	return false;
+}
